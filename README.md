@@ -1,87 +1,67 @@
-# 레스토랑 앱 꾸미기
+# 👨‍🍳 Eat Go
 
-리덕스 툴킷을 이용해서 액션 크리에이터에서 발생하는 중복을 제거하고, Emotion을 이용해 꾸며주세요. 그리고 최적화를 진행해 주세요. 하지만 너무 이른 초기화는 좋지 않으니 주의하셔야 합니다.
+## 프로젝트 소개
+레스토랑 앱 React TDD 프로젝트입니다.<br />
+API를 이용하여 레스토랑을 조회하고 리뷰를 남길 수 있는 앱을 구현하였습니다.<br />
+지역과 음식 종류를 선택하면 레스토랑이 출력되며, 해당 리뷰와 평가를 확인하고 직접 리뷰를 남길 수 있습니다.<br />
+리덕스 툴킷을 사용하였으며, Emotion을 이용해 앱을 꾸몄습니다.<br />
+UseCallback과 React.memo를 이용해서 성능을 최적화하였습니다.
 
-## 과제 목표
+## URL
+https://anne-eatgo.netlify.app
 
-- Redux toolkit을 사용하여 중복 코드 제거하기
-- Emotion을 이용하여 꾸미기
-- UseCallback을 이용하여 성능 최적화하기
-- React.memo를 이용해서 성능 최적화하기
+## 프로젝트 기간
+2022.11.14 - 2022.12.04
 
-## 요구 사항
+## 사용기술
+React, Redux, Jest, Emotion,
+React Testing library
+<br /><br /><br />
 
-- ESLint를 돌린 결과 아무런 문제가 없어야 합니다.
-- 모든 인수 테스트를 통과시켜야 합니다.
-- 한 파일에는 하나의 컴포넌트만 있어야 합니다.
-- 테스트 커버리지 100%를 달성해야 합니다.
+## 주요기능
+### 🙍‍♂️ Login
+API 통신으로 accessToken을 전달받아 저장된 사용자 정보로 로그인을 하면, 리뷰를 남길 수 있습니다. 
+![login](https://user-images.githubusercontent.com/108104436/208664508-e82bb8d7-be4b-483a-bc9a-1d821d98b965.png)
+▲ Login
+<br />
+![logout(login된상태)](https://user-images.githubusercontent.com/108104436/208664525-000d7de0-9e96-4658-b970-f73f76470862.png)
+▲ Logout
 
-## 제한 조건
+<br /><br />
 
-- 모든 기능은 TDD로 구현합니다. 컴포넌트와 reducer에 대한 테스트가 존재해야 합니다. 먼저 테스트를 추가하고 commit 한 뒤 실제 기능을 추가하고 commit합니다. commit 메시지 로그는 아래와 같이 남아야 합니다.
+### 🍴 레스토랑 조회
+Restaurants Page에서 지역과 음식 종류를 선택하면 아래에 해당하는 레스토랑이 출력됩니다.<br />
+레스토랑을 누르면 해당 리뷰와 평가를 확인할 수 있습니다.
+![restaurants](https://user-images.githubusercontent.com/108104436/208665516-427855ec-336f-480e-8b7a-33dc1425284f.png)
 
-> Restaurant에 대한 테스트를 추가한다
->
-> Restaurant을 구현한다
->
-> Restaurant를 리팩토링한다
->
-> ...
+<br /><br />
+### ⭐ 리뷰 확인 및 작성
+레스토랑을 누르면 해당 정보와 리뷰를 볼 수 있습니다.<br />
+로그인을 했을 경우에만 리뷰를 작성할 수 있으며, '리뷰 남기기' 버튼을 클릭 시 API를 통해 리뷰가 반영됩니다.
+![restaurant(restaurants_result)](https://user-images.githubusercontent.com/108104436/208667753-807eff89-8209-4c10-b015-ad8a173d9a1a.png)
 
-* `if`는 사용할 수 있어도 `else` 사용하실 수 없습니다. `GuardClauses` 방법을 사용해주세요.
-* `switch`는 사용하실 수 없습니다.
-* `let`은 사용하실 수 없습니다. `const`만을 사용하여 문제를 해결해주세요.
-* 함수 이름과 변수 이름에 줄임말은 사용하실 수 없습니다. 길더라도 명확하게 써주세요.
-* indent(인덴트, 들여쓰기) depth를 1로 유지해주세요.
-예를 들어, for문 안에 if문이 있으면 indent depth는 2입니다.
-depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 됩니다.
+<br /><br />
+### 🔺 Not Found Page
+잘못된 URL일 경우 NotFound Page로 연결됩니다.
+![notfound](https://user-images.githubusercontent.com/108104436/208667190-ef095c76-7395-4ba3-a166-bf2286cdfcaa.png)
 
-## 설치하기
+
+<br /><br />
+## ⚙ 참고
+### 🔐 Login 정보
+id : tester@example.com <br />
+password : test
+
+<br /><br />
+### 설치하기
 
 ```bash
 npm install
 ```
 
-## 실행하기
+### 실행하기
 
 ```bash
 npm start
 ```
 
-자동으로 브라우저가 켜지지는 않으니 브라우저에 `http://localhost:8080`을 입력하여 접속해 주세요.  
-
-만약 현재 컴퓨터에서 이미 `8080`이라는 포트를 사용하고 있다면 `8081`으로 실행이 될 수도 있어요. 만약 `8081`도 사용하고 있으면 `8082`, `8083` ... 순서대로 찾아서 만들어집니다.
-
-## 린트 실행하기
-
-```bash
-npm run lint
-```
-
-## 테스트 실행하기
-
-### 전체 테스트 실행하기
-
-```bash
-npm test
-```
-
-### 유닛 테스트 실행하기
-
-```bash
-npm run test:unit
-
-# 파일이 저장됐을 때 자동으로 테스트 실행하기
-npm run test:unit -- --watch-all
-
-# 커버리지 출력하기
-npm run coverage
-```
-
-### e2e 테스트 실행하기
-
-서버가 실행중인 상태에서 테스트를 실행해야 합니다.
-
-```bash
-npm run test:e2e
-```
